@@ -1,14 +1,49 @@
-<div>
-  <p-sidebar [(visible)]="sidebarVisible">
-    <div class="sidebar">
+<!-- SideBar without name   -->
+
+<p-sidebar [(visible)]="sidebarVisible">
+  <div class="sidebar">
+    <i class="pi pi-home" style="font-size: 2rem; margin-top: 0.75rem"></i>
+    <i class="pi pi-user" style="font-size: 2rem; margin-top: 0.75rem"></i>
+    <i class="pi pi-user-edit" style="font-size: 2rem; margin-top: 0.75rem"></i>
+    <i class="pi pi-briefcase" style="font-size: 2rem; margin-top: 0.75rem"></i>
+    <i class="pi pi-mobile" style="font-size: 2rem; margin-top: 0.75rem"></i>
+    <i class="pi pi-cog" style="font-size: 2rem; margin-top: 0.75rem"></i>
+    <p-button
+      (onClick)="sidebarVisiblewithName = true"
+      (onClick)="sidebarVisible = false"
+      icon="pi pi-arrow-right"
+    />
+  </div>
+</p-sidebar>
+<p-button (onClick)="sidebarVisible = true" icon="pi pi-bars" />
+
+<!-- Sidebar with name   -->
+
+<p-sidebar [(visible)]="sidebarVisiblewithName">
+  <div class="sidebar">
+    <div class="icon">
       <i class="pi pi-home" style="font-size: 2rem"></i>
-      <i class="pi pi-home" style="font-size: 2rem"></i>
-      <i class="pi pi-home" style="font-size: 2rem"></i>
-      <i class="pi pi-home" style="font-size: 2rem"></i>
-      <i class="pi pi-home" style="font-size: 2rem"></i>
-      <i class="pi pi-home" style="font-size: 2rem"></i>
-      <p-button (onClick)="sidebarVisible = true" icon="pi pi-arrow-right" />
+      <p>Home</p>
     </div>
-  </p-sidebar>
-  <p-button (onClick)="sidebarVisible = true" icon="pi pi-bars" />
-</div>
+    <div class="icon">
+      <i class="pi pi-user" style="font-size: 2rem"></i>
+      <p>User</p>
+    </div>
+    <div class="icon">
+      <i class="pi pi-user-edit" style="font-size: 2rem"></i>
+      <p>Edit</p>
+    </div>
+    <div class="icon">
+      <i class="pi pi-info-circle" style="font-size: 2rem"></i>
+      <p>Info</p>
+    </div>
+    <div class="icon">
+      <i class="pi pi-mobile" style="font-size: 2rem"></i>
+      <p>Mobile</p>
+    </div>
+    <div class="icon">
+      <i class="pi pi-cog" style="font-size: 2rem"></i>
+      <p>Settings</p>
+    </div>
+  </div>
+</p-sidebar>

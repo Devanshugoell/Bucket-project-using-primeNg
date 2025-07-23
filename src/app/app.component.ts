@@ -12,4 +12,5 @@ import { NgStyle } from "@angular/common";
 })
 export class AppComponent {
   sidebarVisible: boolean = false;
+  sidebarVisiblewithName: boolean = false;
 }
