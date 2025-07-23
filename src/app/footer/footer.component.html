@@ -1,37 +1,45 @@
 <footer class="tableContainer">
-  <p-button label="Add" (click)="showInputGroup = true" />
-  <div *ngIf="showInputGroup">
-    <i
-      class="pi pi-times"
-      style="font-size: 1.5rem"
-      (click)="showInputGroup = false"
-    ></i>
-    <p-inputGroup>
-      <input
-        pInputText
-        [(ngModel)]="newItem.fruits"
-        placeholder="Enter Fruits"
-        type="number"
-      /> </p-inputGroup
-    ><p-inputGroup>
-      <input
-        pInputText
-        [(ngModel)]="newItem.vegetable"
-        placeholder="Enter vegetble"
-        type="number"
-      />
-    </p-inputGroup>
-    <p-inputGroup>
-      <input
-        pInputText
-        [(ngModel)]="newItem.drinks"
-        placeholder="Enter Drinks"
-        type="number"
-      />
-    </p-inputGroup>
-    <p-button label="Add" (click)="AddItem()" />
-  </div>
+  <p-button
+    label="Add"
+    (click)="showInputGroup = true"
+    [style.float]="'right'"
+  />
+  <div *ngIf="showInputGroup" class="input-overlay">
+    <div class="input-container">
+      <i
+        class="pi pi-times"
+        style="font-size: 1.5rem"
+        (click)="showInputGroup = false"
+      ></i>
 
+      <p-inputGroup>
+        <input
+          pInputText
+          [(ngModel)]="newItem.fruits"
+          placeholder="Enter Fruits"
+        />
+      </p-inputGroup>
+
+      <p-inputGroup>
+        <input
+          pInputText
+          [(ngModel)]="newItem.vegetable"
+          placeholder="Enter Vegetable"
+        />
+      </p-inputGroup>
+
+      <p-inputGroup>
+        <input
+          pInputText
+          [(ngModel)]="newItem.drinks"
+          placeholder="Enter Drinks"
+        />
+      </p-inputGroup>
+
+      <p-button label="Add" (click)="AddItem()" />
+    </div>
+  </div>
+  <p-toast />
   <p-table
     [value]="products"
     [tableStyle]="{ 'min-width': '50rem' }"
