@@ -1,0 +1,17 @@
+::ng-deep .p-sidebar-left {
+  width: 10rem !important;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
