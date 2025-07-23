@@ -1,0 +1,57 @@
+<footer class="tableContainer">
+  <p-button label="Add" (click)="showInputGroup = true" />
+  <div *ngIf="showInputGroup">
+    <i
+      class="pi pi-times"
+      style="font-size: 1.5rem"
+      (click)="showInputGroup = false"
+    ></i>
+    <p-inputGroup>
+      <input
+        pInputText
+        [(ngModel)]="newItem.fruits"
+        placeholder="Enter Fruits"
+        type="number"
+      /> </p-inputGroup
+    ><p-inputGroup>
+      <input
+        pInputText
+        [(ngModel)]="newItem.vegetable"
+        placeholder="Enter vegetble"
+        type="number"
+      />
+    </p-inputGroup>
+    <p-inputGroup>
+      <input
+        pInputText
+        [(ngModel)]="newItem.drinks"
+        placeholder="Enter Drinks"
+        type="number"
+      />
+    </p-inputGroup>
+    <p-button label="Add" (click)="AddItem()" />
+  </div>
+
+  <p-table
+    [value]="products"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    class="table"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Fruits</th>
+        <th>Vegetable</th>
+        <th>Drinks</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.fruits }}</td>
+        <td>{{ product.vegetable }}</td>
+        <td>{{ product.drinks }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</footer>

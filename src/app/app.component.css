@@ -1,17 +1,8 @@
-::ng-deep .p-sidebar-left {
-  width: 12rem !important;
+/* .container {
+  display: grid;
+  grid-template-columns: 12rem auto;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-}
-
-.icon {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-}
+.main {
+  grid-column-start: 2;
+} */

@@ -1,0 +1,9 @@
+::ng-deep table {
+  margin-left: auto;
+  max-width: 70rem;
+  margin-right: auto;
+}
+
+.tableContainer {
+  max-width: 70rem;
+}
