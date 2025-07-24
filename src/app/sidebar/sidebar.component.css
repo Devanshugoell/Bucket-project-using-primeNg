@@ -2,12 +2,10 @@
   transition: width 0.3s ease;
 }
 
-/* Expanded state */
 ::ng-deep .p-sidebar-left.expanded {
   width: 20rem !important;
 }
 
-/* Collapsed state */
 ::ng-deep .p-sidebar-left.collapsed {
   width: 12rem !important;
 }
@@ -27,9 +25,9 @@
 }
 
 .icon-name {
-  display: none; /* hide by default */
+  display: none;
   margin-left: 0.5rem;
-  transition: all 0.3s ease; /* Optional: smooth animation */
+  transition: all 0.3s ease;
 }
 
 .show-icon {
