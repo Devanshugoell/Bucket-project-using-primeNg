@@ -1,10 +1,17 @@
-<h1>Total Items: {{ products.length }}</h1>
+<div class="card-container" style="display: flex; gap: 1rem; flex-wrap: wrap">
+  <p-card header="Total Buckets" class="my-10">
+    <p>{{ products.length }}</p>
+  </p-card>
 
-<h1>Total Drinks : {{ totalDrinks }}</h1>
+  <p-card header="Total Fruits" class="my-10">
+    <p>{{ totalFruits }}</p>
+  </p-card>
 
-<ul>
-  <li *ngFor="let product of products">
-    ID: {{ product.id }} - Fruits: {{ product.fruits }} - Vegetable:
-    {{ product.vegetable }} - Drinks: {{ product.drinks }}
-  </li>
-</ul>
+  <p-card header="Total Vegetables" class="my-10">
+    <p>{{ totalVegetables }}</p>
+  </p-card>
+
+  <p-card header="Total Drinks" class="my-10">
+    <p>{{ totalDrinks }}</p>
+  </p-card>
+</div>

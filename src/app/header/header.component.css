@@ -1,0 +1,12 @@
+.my-10 {
+  margin-top: 5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-container .my-10 p {
+  font-weight: 800;
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-family: "Montserrat", sans-serif;
+}

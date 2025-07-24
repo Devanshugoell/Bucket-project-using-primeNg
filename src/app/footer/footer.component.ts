@@ -45,15 +45,15 @@ export class FooterComponent {
   products: any = [
     {
       id: Math.floor(Math.random() * 1000),
-      fruits: Math.floor(Math.random() * 1000),
-      vegetable: Math.floor(Math.random() * 1000),
-      drinks: Math.floor(Math.random() * 1000),
+      fruits: Math.floor(Math.random() * 20),
+      vegetable: Math.floor(Math.random() * 20),
+      drinks: Math.floor(Math.random() * 20),
     },
     {
       id: Math.floor(Math.random() * 1000),
-      fruits: Math.floor(Math.random() * 1000),
-      vegetable: Math.floor(Math.random() * 1000),
-      drinks: Math.floor(Math.random() * 1000),
+      fruits: Math.floor(Math.random() * 20),
+      vegetable: Math.floor(Math.random() * 20),
+      drinks: Math.floor(Math.random() * 20),
     },
   ];
 

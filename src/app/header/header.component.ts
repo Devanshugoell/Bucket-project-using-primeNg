@@ -1,30 +1,41 @@
 import { Component } from "@angular/core";
 import { NgFor } from "@angular/common";
+import { CardModule } from "primeng/card";
 
 @Component({
   selector: "app-header",
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, CardModule],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
 })
 export class HeaderComponent {
   products: any[] = [];
 
-  totalDrinks: number | null = null;
+  totalDrinks = 0;
+  totalFruits = 0;
+  totalVegetables = 0;
 
   ngOnInit(): void {
     const storedProducts = localStorage.getItem("products");
     if (storedProducts) {
       this.products = JSON.parse(storedProducts);
-
-      // Calculate total drinks
-      this.totalDrinks = this.products.reduce((sum, item) => {
-        return sum + (item.drinks || 0);
-      }, 0);
     }
+    this.calculateTotals();
+  }
 
-    console.log("Products:", this.products);
-    console.log("Total Drinks:", this.totalDrinks);
+  private calculateTotals(): void {
+    this.totalDrinks = this.products.reduce(
+      (sum, item) => sum + Number(item.drinks || 0),
+      0
+    );
+    this.totalFruits = this.products.reduce(
+      (sum, item) => sum + Number(item.fruits || 0),
+      0
+    );
+    this.totalVegetables = this.products.reduce(
+      (sum, item) => sum + Number(item.vegetable || 0),
+      0
+    );
   }
 }
