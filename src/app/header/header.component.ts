@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, DoCheck } from "@angular/core";
 import { NgFor } from "@angular/common";
 import { CardModule } from "primeng/card";
 
@@ -9,19 +9,35 @@ import { CardModule } from "primeng/card";
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
 })
-export class HeaderComponent {
+export class HeaderComponent implements DoCheck {
   products: any[] = [];
 
   totalDrinks = 0;
   totalFruits = 0;
   totalVegetables = 0;
 
+  private lastStoredProducts = "";
+
   ngOnInit(): void {
     const storedProducts = localStorage.getItem("products");
     if (storedProducts) {
       this.products = JSON.parse(storedProducts);
+      this.lastStoredProducts = storedProducts;
     }
     this.calculateTotals();
+  }
+
+  ngDoCheck(): void {
+    const currentStoredProducts = localStorage.getItem("products");
+
+    if (
+      currentStoredProducts &&
+      currentStoredProducts !== this.lastStoredProducts
+    ) {
+      this.products = JSON.parse(currentStoredProducts);
+      this.lastStoredProducts = currentStoredProducts;
+      this.calculateTotals();
+    }
   }
 
   private calculateTotals(): void {

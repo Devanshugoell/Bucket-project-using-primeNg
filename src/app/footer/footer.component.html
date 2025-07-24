@@ -1,9 +1,5 @@
 <footer class="tableContainer">
-  <p-button
-    label="Add"
-    (click)="showInputGroup = true"
-    [style.float]="'right'"
-  />
+  <p-button label="Add" (click)="showInputGroup = true" styleClass="px-6" />
   <div *ngIf="showInputGroup" class="input-overlay">
     <div class="input-container">
       <i
@@ -17,6 +13,7 @@
           pInputText
           [(ngModel)]="newItem.fruits"
           placeholder="Enter Fruits"
+          class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </p-inputGroup>
 
@@ -25,6 +22,7 @@
           pInputText
           [(ngModel)]="newItem.vegetable"
           placeholder="Enter Vegetable"
+          class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </p-inputGroup>
 
@@ -33,10 +31,11 @@
           pInputText
           [(ngModel)]="newItem.drinks"
           placeholder="Enter Drinks"
+          class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </p-inputGroup>
 
-      <p-button label="Add" (click)="AddItem()" />
+      <p-button label="Add" (click)="AddItem()" styleClass="w-[80%]" />
     </div>
   </div>
   <p-toast />
