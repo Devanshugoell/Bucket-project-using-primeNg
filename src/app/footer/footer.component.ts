@@ -76,17 +76,19 @@ export class FooterComponent {
 
   AddItem() {
     if (
-      this.newItem.fruits == 0 &&
-      this.newItem.drinks == 0 &&
-      this.newItem.vegetable == 0
+      this.newItem.fruits == 0 ||
+      (this.newItem.fruits == null && this.newItem.drinks == 0) ||
+      (this.newItem.drinks == null && this.newItem.vegetable == 0) ||
+      this.newItem.vegetable == null
     ) {
       this.showToaster("warn", "WARN", "The value must be greater than 0");
       return;
-    } else if (
-      this.newItem.fruits !== null &&
-      this.newItem.drinks !== null &&
-      this.newItem.vegetable !== null
-    ) {
+      // } else if (
+      //   this.newItem.fruits !== null &&
+      //   this.newItem.drinks !== null &&
+      //   this.newItem.vegetable !== null
+      // )
+    } else {
       this.products.push({ ...this.newItem });
       this.showToaster("success", "Success", "Successfully Added");
       localStorage.setItem("products", JSON.stringify(this.products));

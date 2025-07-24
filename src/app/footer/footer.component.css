@@ -5,7 +5,7 @@
 
 .tableContainer {
   position: absolute;
-  bottom: 90;
+  top: 400px;
   display: flex;
   flex-direction: column;
   gap: 2rem;

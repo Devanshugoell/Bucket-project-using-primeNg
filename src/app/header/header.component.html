@@ -1,0 +1,10 @@
+<h1>Total Items: {{ products.length }}</h1>
+
+<h1>Total Drinks : {{ totalDrinks }}</h1>
+
+<ul>
+  <li *ngFor="let product of products">
+    ID: {{ product.id }} - Fruits: {{ product.fruits }} - Vegetable:
+    {{ product.vegetable }} - Drinks: {{ product.drinks }}
+  </li>
+</ul>
