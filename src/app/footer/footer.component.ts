@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { TableModule } from "primeng/table";
 import { InputGroupModule } from "primeng/inputgroup";
@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { NgIf } from "@angular/common";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
+import { AutoCompleteModule } from "primeng/autocomplete";
 
 interface NewItem {
   id: number;
@@ -18,6 +19,7 @@ interface NewItem {
   selector: "app-footer",
   standalone: true,
   imports: [
+    AutoCompleteModule,
     ButtonModule,
     TableModule,
     InputGroupModule,
@@ -30,6 +32,10 @@ interface NewItem {
   providers: [MessageService],
 })
 export class FooterComponent {
+  isEditing: boolean = false;
+  searchTerm: string = "";
+  filteredProducts: any[] = [];
+
   showWarning: boolean = false;
   showInputGroup: boolean = false;
 
@@ -64,6 +70,8 @@ export class FooterComponent {
     } else {
       localStorage.setItem("products", JSON.stringify(this.products));
     }
+
+    this.filteredProducts = [...this.products];
   }
 
   showToaster(severity: string, summary: string, detail: string) {
@@ -90,6 +98,7 @@ export class FooterComponent {
       // )
     } else {
       this.products.push({ ...this.newItem });
+      this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
       this.showToaster("success", "Success", "Successfully Added");
       localStorage.setItem("products", JSON.stringify(this.products));
 
@@ -100,12 +109,14 @@ export class FooterComponent {
         vegetable: null,
         drinks: null,
       };
+      this.isEditing = false;
     }
   }
 
   handleDelete(id: number, isEditing?: string): void {
     this.products = this.products.filter((product: any) => product.id !== id);
     localStorage.setItem("products", JSON.stringify(this.products));
+    this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
     if (isEditing === "editing") {
       return;
     }
@@ -113,6 +124,7 @@ export class FooterComponent {
   }
 
   handleEdit(product: NewItem, id: number): void {
+    this.isEditing = true;
     this.handleDelete(id, "editing");
     this.showInputGroup = true;
     this.newItem = {
@@ -121,5 +133,42 @@ export class FooterComponent {
       vegetable: product.vegetable,
       drinks: product.drinks,
     };
+  }
+  filterTable(event: any) {
+    const query = event.query?.toLowerCase() || "";
+
+    if (!query.trim()) {
+      this.filteredProducts = [...this.products];
+      return;
+    }
+
+    this.filteredProducts = this.products.filter(
+      (product: any) =>
+        product.id.toString().includes(query) ||
+        product.fruits?.toString().includes(query) ||
+        product.vegetable?.toString().includes(query) ||
+        product.drinks?.toString().includes(query)
+    );
+  }
+
+  handleInputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchTerm = input.value;
+    this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
+  }
+
+  filterBySearchTerm(search: string): any[] {
+    const query = search.toLowerCase();
+    if (!query.trim()) {
+      return [...this.products];
+    }
+
+    return this.products.filter(
+      (product: any) =>
+        product.id.toString().includes(query) ||
+        product.fruits?.toString().includes(query) ||
+        product.vegetable?.toString().includes(query) ||
+        product.drinks?.toString().includes(query)
+    );
   }
 }

@@ -1,13 +1,28 @@
 <footer class="tableContainer">
-  <p-button label="Add" (click)="showInputGroup = true" styleClass="px-6" />
+  <div class="flex justify-between w-full">
+    <p-inputGroup class="w-full md:w-96">
+      <input
+        pInputText
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="handleInputChange($event)"
+        placeholder="Search ID, Fruits, Vegetable, Drinks..."
+        class="w-full h-14 leading-10 text-2xl"
+      />
+    </p-inputGroup>
+
+    <p-button label="Add" (click)="showInputGroup = true" styleClass="px-8" />
+  </div>
+
   <div *ngIf="showInputGroup" class="input-overlay">
     <div class="input-container min-h-96">
+      @if(isEditing === false) {
       <i
         class="pi pi-times"
         style="font-size: 1.5rem"
         (click)="showInputGroup = false"
       ></i>
-
+      }
       <p-inputGroup>
         <input
           pInputText
@@ -40,7 +55,7 @@
   </div>
   <p-toast />
   <p-table
-    [value]="products"
+    [value]="filteredProducts"
     [tableStyle]="{ 'min-width': '50rem' }"
     class="table"
   >
