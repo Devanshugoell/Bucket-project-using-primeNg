@@ -50,14 +50,30 @@
         <th>Fruits</th>
         <th>Vegetable</th>
         <th>Drinks</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
-      <tr>
+      <tr class="even:bg-slate-100 hover:bg-slate-200 hover:cursor-pointer">
         <td>{{ product.id }}</td>
         <td>{{ product.fruits }}</td>
         <td>{{ product.vegetable }}</td>
         <td>{{ product.drinks }}</td>
+        <td>
+          <p-button
+            label="Edit"
+            severity="warning"
+            (click)="handleEdit(product, product.id)"
+          />
+        </td>
+        <td>
+          <p-button
+            label="Delete"
+            severity="danger"
+            (click)="handleDelete(product.id)"
+          />
+        </td>
       </tr>
     </ng-template>
   </p-table>

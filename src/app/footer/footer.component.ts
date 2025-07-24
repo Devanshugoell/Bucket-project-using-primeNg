@@ -102,4 +102,24 @@ export class FooterComponent {
       };
     }
   }
+
+  handleDelete(id: number, isEditing?: string): void {
+    this.products = this.products.filter((product: any) => product.id !== id);
+    localStorage.setItem("products", JSON.stringify(this.products));
+    if (isEditing === "editing") {
+      return;
+    }
+    this.showToaster("success", "Deleted", "Item has been deleted");
+  }
+
+  handleEdit(product: NewItem, id: number): void {
+    this.handleDelete(id, "editing");
+    this.showInputGroup = true;
+    this.newItem = {
+      id: product.id,
+      fruits: product.fruits,
+      vegetable: product.vegetable,
+      drinks: product.drinks,
+    };
+  }
 }
