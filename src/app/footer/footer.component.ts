@@ -33,6 +33,7 @@ interface NewItem {
 })
 export class FooterComponent {
   isEditing: boolean = false;
+  backupEditedItem: NewItem | null = null;
   searchTerm: string = "";
   filteredProducts: any[] = [];
 
@@ -83,6 +84,7 @@ export class FooterComponent {
   }
 
   AddItem() {
+    this.isEditing = false;
     if (
       this.newItem.fruits == 0 ||
       (this.newItem.fruits == null && this.newItem.drinks == 0) ||
@@ -104,7 +106,6 @@ export class FooterComponent {
         vegetable: null,
         drinks: null,
       };
-      this.isEditing = false;
     }
   }
 
@@ -119,9 +120,10 @@ export class FooterComponent {
   }
 
   handleEdit(product: NewItem, id: number): void {
-    this.isEditing = true;
+    this.backupEditedItem = { ...product };
     this.handleDelete(id, "editing");
     this.showInputGroup = true;
+    this.isEditing = true;
     this.newItem = {
       id: product.id,
       fruits: product.fruits,
@@ -129,6 +131,7 @@ export class FooterComponent {
       drinks: product.drinks,
     };
   }
+
   filterTable(event: any) {
     const query = event.query?.toLowerCase() || "";
 
@@ -165,5 +168,24 @@ export class FooterComponent {
         product.vegetable?.toString().includes(query) ||
         product.drinks?.toString().includes(query)
     );
+  }
+
+  cancelEdit(): void {
+    if (this.backupEditedItem) {
+      this.products.push(this.backupEditedItem);
+      localStorage.setItem("products", JSON.stringify(this.products));
+      this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
+      this.backupEditedItem = null;
+    }
+
+    this.showInputGroup = false;
+    this.isEditing = false;
+
+    this.newItem = {
+      id: Math.floor(Math.random() * 1000),
+      fruits: null,
+      vegetable: null,
+      drinks: null,
+    };
   }
 }

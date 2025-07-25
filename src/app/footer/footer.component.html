@@ -21,13 +21,12 @@
 
   <div *ngIf="showInputGroup" class="input-overlay">
     <div class="input-container min-h-96">
-      @if(isEditing === false) {
       <i
         class="pi pi-times"
         style="font-size: 1.5rem"
-        (click)="showInputGroup = false"
+        (click)="cancelEdit()"
       ></i>
-      }
+
       <p-inputGroup>
         <input
           pInputText
@@ -55,7 +54,11 @@
         />
       </p-inputGroup>
 
-      <p-button label="Add" (click)="AddItem()" styleClass="w-[80%]" />
+      <p-button
+        [label]="isEditing ? 'Update' : 'Add'"
+        (click)="AddItem()"
+        styleClass="w-[80%]"
+      />
     </div>
   </div>
   <p-toast />
