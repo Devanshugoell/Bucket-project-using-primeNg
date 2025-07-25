@@ -3,7 +3,7 @@
 }
 
 ::ng-deep .p-sidebar-left.expanded {
-  width: 20rem !important;
+  width: 14rem !important;
 }
 
 ::ng-deep .p-sidebar-left.collapsed {
