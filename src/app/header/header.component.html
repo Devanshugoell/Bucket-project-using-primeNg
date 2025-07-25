@@ -1,28 +1,50 @@
-<div class="card-container" style="display: flex; gap: 1rem; flex-wrap: wrap">
+<div
+  class="card-container"
+  style="display: flex; gap: 1rem; flex-wrap: wrap"
+  [@cardEnter]="animationTrigger"
+>
   <p-card
     header="Total Buckets"
-    class="my-10 shadow-lg hover:scale-105 hover:cursor-pointer"
+    class="my-10 shadow-lg card-item"
+    [@cardHover]="cardStates.buckets"
+    (mouseenter)="onCardHover('buckets')"
+    (mouseleave)="onCardLeave('buckets')"
+    (click)="onCardClick('buckets')"
   >
-    <p class="text-green-600">{{ products.length }}</p>
+    <p class="text-green-600">
+      {{ products.length }}
+    </p>
   </p-card>
 
   <p-card
     header="Total Fruits"
-    class="my-10 shadow-lg hover:scale-105 hover:cursor-pointer"
+    class="my-10 shadow-lg card-item"
+    [@cardHover]="cardStates.fruits"
+    (mouseenter)="onCardHover('fruits')"
+    (mouseleave)="onCardLeave('fruits')"
+    (click)="onCardClick('fruits')"
   >
     <p class="text-amber-400">{{ totalFruits }}</p>
   </p-card>
 
   <p-card
     header="Total Vegetables"
-    class="my-10 shadow-lg hover:scale-105 hover:cursor-pointer"
+    class="my-10 shadow-lg card-item"
+    [@cardHover]="cardStates.vegetables"
+    (mouseenter)="onCardHover('vegetables')"
+    (mouseleave)="onCardLeave('vegetables')"
+    (click)="onCardClick('vegetables')"
   >
     <p class="text-red-400">{{ totalVegetables }}</p>
   </p-card>
 
   <p-card
     header="Total Drinks"
-    class="my-10 shadow-lg hover:scale-105 hover:cursor-pointer"
+    class="my-10 shadow-lg card-item"
+    [@cardHover]="cardStates.drinks"
+    (mouseenter)="onCardHover('drinks')"
+    (mouseleave)="onCardLeave('drinks')"
+    (click)="onCardClick('drinks')"
   >
     <p class="text-orange-400">{{ totalDrinks }}</p>
   </p-card>

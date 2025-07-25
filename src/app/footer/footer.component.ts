@@ -91,11 +91,6 @@ export class FooterComponent {
     ) {
       this.showToaster("warn", "WARN", "The value must be greater than 0");
       return;
-      // } else if (
-      //   this.newItem.fruits !== null &&
-      //   this.newItem.drinks !== null &&
-      //   this.newItem.vegetable !== null
-      // )
     } else {
       this.products.push({ ...this.newItem });
       this.filteredProducts = this.filterBySearchTerm(this.searchTerm);

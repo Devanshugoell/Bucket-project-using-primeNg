@@ -3,53 +3,79 @@
   [styleClass]="sidebarVisiblewithName ? 'expanded' : 'collapsed'"
 >
   <div class="sidebar">
-    <div class="iconContainer">
-      <i class="pi pi-home" style="font-size: 2rem; margin-top: 0.75rem"></i>
-      <p class="icon-name" [ngClass]="{ 'show-icon': sidebarVisiblewithName }">
-        Home
-      </p>
+    <!-- Icons -->
+    <div class="icon-group">
+      <div class="iconContainer">
+        <i class="pi pi-home"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          Home
+        </p>
+      </div>
+
+      <div class="iconContainer">
+        <i class="pi pi-user"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          User
+        </p>
+      </div>
+
+      <div class="iconContainer">
+        <i class="pi pi-user-edit"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          User edit
+        </p>
+      </div>
+
+      <div class="iconContainer">
+        <i class="pi pi-briefcase"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          Briefcase
+        </p>
+      </div>
+
+      <div class="iconContainer">
+        <i class="pi pi-mobile"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          Mobile
+        </p>
+      </div>
+
+      <div class="iconContainer">
+        <i class="pi pi-cog"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          Settings
+        </p>
+      </div>
     </div>
-    <div class="iconContainer">
-      <i class="pi pi-user" style="font-size: 2rem; margin-top: 0.75rem"></i>
-      <p class="icon-name" [ngClass]="{ 'show-icon': sidebarVisiblewithName }">
-        User
-      </p>
+
+    <!-- Toggle button -->
+    <div class="sidebar-toggle-button">
+      <p-button
+        (onClick)="sidebarFunction()"
+        class="fixed left-10 bottom-10"
+        [icon]="
+          sidebarVisiblewithName ? 'pi pi-arrow-left' : 'pi pi-arrow-right'
+        "
+      ></p-button>
     </div>
-    <div class="iconContainer">
-      <i
-        class="pi pi-user-edit"
-        style="font-size: 2rem; margin-top: 0.75rem"
-      ></i>
-      <p class="icon-name" [ngClass]="{ 'show-icon': sidebarVisiblewithName }">
-        User edit
-      </p>
-    </div>
-    <div class="iconContainer">
-      <i
-        class="pi pi-briefcase"
-        style="font-size: 2rem; margin-top: 0.75rem"
-      ></i>
-      <p class="icon-name" [ngClass]="{ 'show-icon': sidebarVisiblewithName }">
-        Briefcase
-      </p>
-    </div>
-    <div class="iconContainer">
-      <i class="pi pi-mobile" style="font-size: 2rem; margin-top: 0.75rem"></i>
-      <p class="icon-name" [ngClass]="{ 'show-icon': sidebarVisiblewithName }">
-        Mobile
-      </p>
-    </div>
-    <div class="iconContainer">
-      <i class="pi pi-cog" style="font-size: 2rem; margin-top: 0.75rem"></i>
-      <p class="icon-name" [ngClass]="{ 'show-icon': sidebarVisiblewithName }">
-        Setting
-      </p>
-    </div>
-    <p-button
-      (onClick)="sidebarFunction()"
-      class="fixed bottom-10"
-      [icon]="sidebarVisiblewithName ? 'pi pi-arrow-left' : 'pi pi-arrow-right'"
-    />
   </div>
 </p-sidebar>
 <p-button (onClick)="sidebarVisible = true" icon="pi pi-bars" />

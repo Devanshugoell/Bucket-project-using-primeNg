@@ -1,5 +1,7 @@
 ::ng-deep .p-sidebar-left {
   transition: width 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 ::ng-deep .p-sidebar-left.expanded {
@@ -7,36 +9,75 @@
 }
 
 ::ng-deep .p-sidebar-left.collapsed {
-  width: 12rem !important;
+  width: 8rem !important;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem 0.5rem;
 }
 
-.icon {
+.icon-group {
   display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon-name {
-  display: none;
-  margin-left: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.show-icon {
-  display: inline-block;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .iconContainer {
   display: flex;
-  justify-content: space-around;
-  min-width: 13rem;
   align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.iconContainer i {
+  font-size: 2rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.icon-name {
+  margin-left: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-toggle-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 0;
+}
+
+.sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 0.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-toggle-button {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
 }
