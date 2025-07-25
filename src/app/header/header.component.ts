@@ -18,7 +18,6 @@ import {
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
   animations: [
-    // Card entrance animation with stagger effect
     trigger("cardEnter", [
       transition("* => *", [
         query(
@@ -43,7 +42,6 @@ import {
       ]),
     ]),
 
-    // Individual card hover animation
     trigger("cardHover", [
       state(
         "default",
@@ -65,12 +63,10 @@ import {
       ]),
     ]),
 
-    // Number counter animation
     trigger("numberCount", [
       transition(":increment", [animate("0.5s ease-out")]),
     ]),
 
-    // Pulse animation for active states
     trigger("pulse", [
       state(
         "inactive",
@@ -97,7 +93,6 @@ export class HeaderComponent implements DoCheck {
 
   private lastStoredProducts = "";
 
-  // Animation states for each card
   cardStates = {
     buckets: "default",
     fruits: "default",
@@ -105,7 +100,6 @@ export class HeaderComponent implements DoCheck {
     drinks: "default",
   };
 
-  // Track animation trigger
   animationTrigger = true;
 
   ngOnInit(): void {
@@ -149,7 +143,6 @@ export class HeaderComponent implements DoCheck {
     );
   }
 
-  // Methods to handle hover states
   onCardHover(cardType: string) {
     this.cardStates[cardType as keyof typeof this.cardStates] = "hovered";
   }
@@ -158,7 +151,6 @@ export class HeaderComponent implements DoCheck {
     this.cardStates[cardType as keyof typeof this.cardStates] = "default";
   }
 
-  // Method to handle card clicks with pulse effect
   onCardClick(cardType: string) {
     const currentState =
       this.cardStates[cardType as keyof typeof this.cardStates];

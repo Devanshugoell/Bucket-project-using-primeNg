@@ -16,20 +16,16 @@
   font-family: "Montserrat", sans-serif;
   transition: transform 0.3s ease;
 }
-
-/* Enhanced card styling */
 .card-item {
   transform-origin: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
 }
 
-/* Hover effects for the text */
 .card-item:hover p {
   transform: scale(1.1);
 }
 
-/* Add a subtle gradient background on hover */
 .card-item::before {
   content: "";
   position: absolute;
@@ -51,12 +47,10 @@
   opacity: 1;
 }
 
-/* Container animations */
 .card-container {
   perspective: 1000px;
 }
 
-/* Add loading skeleton effect (optional) */
 @keyframes shimmer {
   0% {
     background-position: -200px 0;
@@ -70,19 +64,4 @@
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200px 100%;
   animation: shimmer 1.5s infinite;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .card-container {
-    gap: 0.5rem;
-  }
-
-  .my-10 {
-    margin-top: 2rem;
-  }
-
-  .card-container .my-10 p {
-    font-size: 1.5rem;
-  }
 }
