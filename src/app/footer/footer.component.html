@@ -1,5 +1,5 @@
 <footer class="tableContainer">
-  <div class="flex justify-between w-full">
+  <div class="flex justify-between w-full items-center">
     <p-inputGroup class="w-full md:w-96">
       <input
         pInputText
@@ -7,11 +7,15 @@
         [(ngModel)]="searchTerm"
         (input)="handleInputChange($event)"
         placeholder="Search ID, Fruits, Vegetable, Drinks..."
-        class="w-full h-14 leading-10 text-2xl"
+        class="w-full h-14 leading-10 text-2xl pl-6"
       />
     </p-inputGroup>
 
-    <p-button label="Add" (click)="showInputGroup = true" styleClass="px-8" />
+    <p-button
+      label="Add"
+      (click)="showInputGroup = true"
+      styleClass="px-8 py-4"
+    />
   </div>
 
   <div *ngIf="showInputGroup" class="input-overlay">
