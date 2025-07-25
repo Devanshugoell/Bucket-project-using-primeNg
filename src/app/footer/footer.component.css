@@ -4,11 +4,11 @@
 }
 
 .tableContainer {
-  position: absolute;
+  position: relative; /* ✅ fix absolute positioning */
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: end;
+  align-items: stretch; /* ✅ make child stretch full width */
 }
 
 .input-overlay {

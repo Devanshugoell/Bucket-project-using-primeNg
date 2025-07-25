@@ -1,51 +1,67 @@
-<div
-  class="card-container"
-  style="display: flex; gap: 1rem; flex-wrap: wrap"
-  [@cardEnter]="animationTrigger"
->
+<div class="card-container" [@cardEnter]="animationTrigger">
   <p-card
-    header="Total Buckets"
-    class="my-10 shadow-lg card-item"
+    class="shadow-lg card-item min-w-80"
     [@cardHover]="cardStates.buckets"
     (mouseenter)="onCardHover('buckets')"
     (mouseleave)="onCardLeave('buckets')"
     (click)="onCardClick('buckets')"
   >
-    <p class="text-green-600">
-      {{ products.length }}
-    </p>
+    <div class="flex flex-col px-4 py-2">
+      <div class="flex items-center justify-between mb-1">
+        <h2 class="text-2xl font-semibold text-gray-700">Total Buckets</h2>
+        <img src="images/bucket.png" alt="Bucket Icon" class="w-12" />
+      </div>
+      <p class="text-green-600 text-4xl">{{ products.length }}</p>
+    </div>
   </p-card>
 
   <p-card
-    header="Total Fruits"
-    class="my-10 shadow-lg card-item"
+    class="shadow-lg card-item min-w-80"
     [@cardHover]="cardStates.fruits"
     (mouseenter)="onCardHover('fruits')"
     (mouseleave)="onCardLeave('fruits')"
     (click)="onCardClick('fruits')"
   >
-    <p class="text-amber-400">{{ totalFruits }}</p>
+    <div class="flex flex-col px-4 py-2">
+      <div class="flex items-center justify-between mb-1">
+        <h2 class="text-2xl font-semibold text-gray-700">Total Fruits</h2>
+        <img src="images/fruits.png" alt="Fruits Icon" class="w-12" />
+      </div>
+      <p class="text-amber-400 text-4xl">{{ totalFruits }}</p>
+    </div>
   </p-card>
 
   <p-card
-    header="Total Vegetables"
-    class="my-10 shadow-lg card-item"
+    header=""
+    class="shadow-lg card-item min-w-80"
     [@cardHover]="cardStates.vegetables"
     (mouseenter)="onCardHover('vegetables')"
     (mouseleave)="onCardLeave('vegetables')"
     (click)="onCardClick('vegetables')"
   >
-    <p class="text-red-400">{{ totalVegetables }}</p>
+    <div class="flex flex-col px-4 py-2">
+      <div class="flex items-center justify-between mb-1">
+        <h2 class="text-2xl font-semibold text-gray-700">Total Vegetables</h2>
+        <img src="images/vegetables.png" alt="Vegetable Icon" class="w-12" />
+      </div>
+      <p class="text-red-400 text-4xl">{{ totalVegetables }}</p>
+    </div>
   </p-card>
 
   <p-card
-    header="Total Drinks"
-    class="my-10 shadow-lg card-item"
+    header=""
+    class="shadow-lg card-item min-w-80"
     [@cardHover]="cardStates.drinks"
     (mouseenter)="onCardHover('drinks')"
     (mouseleave)="onCardLeave('drinks')"
     (click)="onCardClick('drinks')"
   >
-    <p class="text-orange-400">{{ totalDrinks }}</p>
+    <div class="flex flex-col px-4 py-2">
+      <div class="flex items-center justify-between mb-1">
+        <h2 class="text-2xl font-semibold text-gray-700">Total Drinks</h2>
+        <img src="images/drinks.png" alt="Drinks Icon" class="w-12" />
+      </div>
+      <p class="text-orange-400 text-4xl">{{ totalDrinks }}</p>
+    </div>
   </p-card>
 </div>

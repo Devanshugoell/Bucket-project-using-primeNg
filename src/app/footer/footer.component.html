@@ -62,11 +62,7 @@
     </div>
   </div>
   <p-toast />
-  <p-table
-    [value]="filteredProducts"
-    [tableStyle]="{ 'min-width': '50rem' }"
-    class="table"
-  >
+  <p-table [value]="filteredProducts" styleClass="width: 100%" class="table">
     <ng-template pTemplate="header">
       <tr>
         <th>Id</th>
@@ -85,15 +81,15 @@
         <td>{{ product.drinks }}</td>
         <td>
           <p-button
-            label="Edit"
             severity="warning"
+            icon="pi pi-pencil"
             (click)="handleEdit(product, product.id)"
           />
         </td>
         <td>
           <p-button
-            label="Delete"
             severity="danger"
+            icon="pi pi-trash"
             (click)="handleDelete(product.id)"
           />
         </td>

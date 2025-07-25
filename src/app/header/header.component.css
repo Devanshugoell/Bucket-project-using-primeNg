@@ -23,7 +23,7 @@
 }
 
 .card-item:hover p {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .card-item::before {
@@ -47,10 +47,6 @@
   opacity: 1;
 }
 
-.card-container {
-  perspective: 1000px;
-}
-
 @keyframes shimmer {
   0% {
     background-position: -200px 0;
@@ -64,4 +60,11 @@
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200px 100%;
   animation: shimmer 1.5s infinite;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
