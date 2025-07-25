@@ -1,11 +1,11 @@
-<p-sidebar
-  [(visible)]="sidebarVisible"
-  [styleClass]="sidebarVisiblewithName ? 'expanded' : 'collapsed'"
+<div
+  class="custom-sidebar-container"
+  [ngClass]="sidebarVisiblewithName ? 'expanded' : 'collapsed'"
 >
   <div class="sidebar">
     <!-- Icons -->
     <div class="icon-group">
-      <div class="iconContainer">
+      <div class="iconContainer ml-4">
         <i class="pi pi-home"></i>
         <p
           class="icon-name"
@@ -15,7 +15,7 @@
         </p>
       </div>
 
-      <div class="iconContainer">
+      <div class="iconContainer ml-4">
         <i class="pi pi-user"></i>
         <p
           class="icon-name"
@@ -25,7 +25,7 @@
         </p>
       </div>
 
-      <div class="iconContainer">
+      <div class="iconContainer ml-4">
         <i class="pi pi-user-edit"></i>
         <p
           class="icon-name"
@@ -35,7 +35,7 @@
         </p>
       </div>
 
-      <div class="iconContainer">
+      <div class="iconContainer ml-4">
         <i class="pi pi-briefcase"></i>
         <p
           class="icon-name"
@@ -45,7 +45,7 @@
         </p>
       </div>
 
-      <div class="iconContainer">
+      <div class="iconContainer ml-4">
         <i class="pi pi-mobile"></i>
         <p
           class="icon-name"
@@ -55,7 +55,7 @@
         </p>
       </div>
 
-      <div class="iconContainer">
+      <div class="iconContainer ml-4">
         <i class="pi pi-cog"></i>
         <p
           class="icon-name"
@@ -77,9 +77,4 @@
       ></p-button>
     </div>
   </div>
-</p-sidebar>
-<p-button
-  (onClick)="sidebarVisible = true"
-  icon="pi pi-bars"
-  styleClass="mt-4"
-/>
+</div>

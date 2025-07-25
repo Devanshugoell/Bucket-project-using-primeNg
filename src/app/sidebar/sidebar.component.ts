@@ -12,7 +12,7 @@ import { SidebarModule } from "primeng/sidebar";
 })
 export class SidebarComponent {
   sidebarVisiblewithName = false;
-  sidebarVisible: boolean = false;
+  sidebarVisible: boolean = true;
   sidebarFunction() {
     this.sidebarVisiblewithName = !this.sidebarVisiblewithName;
   }
