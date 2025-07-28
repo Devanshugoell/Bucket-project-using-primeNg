@@ -1,0 +1,18 @@
+{
+  "FOOTER": {
+    "SEARCH_PLACEHOLDER": "Search ID, Fruits, Vegetable, Drinks...",
+    "ADD_BUTTON": "Add",
+    "UPDATE_BUTTON": "Update",
+    "ENTER_FRUITS": "Enter Fruits",
+    "ENTER_VEGETABLE": "Enter Vegetable",
+    "ENTER_DRINKS": "Enter Drinks",
+    "TABLE": {
+      "ID": "Id",
+      "FRUITS": "Fruits",
+      "VEGETABLE": "Vegetable",
+      "DRINKS": "Drinks",
+      "EDIT": "Edit",
+      "DELETE": "Delete"
+    }
+  }
+}
