@@ -2,6 +2,7 @@ import { NgClass } from "@angular/common";
 import { Component } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { SidebarModule } from "primeng/sidebar";
+import { UserService } from "../service/user.service";
 
 @Component({
   selector: "app-sidebar",
@@ -13,6 +14,13 @@ import { SidebarModule } from "primeng/sidebar";
 export class SidebarComponent {
   sidebarVisiblewithName = false;
   sidebarVisible: boolean = true;
+
+  constructor(private userService: UserService) {}
+
+  onLogout() {
+    this.userService.logout();
+  }
+
   sidebarFunction() {
     this.sidebarVisiblewithName = !this.sidebarVisiblewithName;
   }

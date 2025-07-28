@@ -2,19 +2,19 @@
   <div class="bg-white px-8 py-12 rounded-xl shadow-lg w-full max-w-sm">
     <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Login</h2>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <!-- Username -->
+    <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+      <!-- Email -->
       <div class="mb-4">
-        <label class="block text-gray-600 mb-1 text-xl">Username</label>
+        <label class="block text-gray-600 mb-1 text-xl">Email</label>
         <div class="relative">
           <i
             class="pi pi-user absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
           ></i>
           <input
-            type="text"
-            formControlName="username"
+            type="email"
+            formControlName="email"
             class="pl-10 pr-4 py-4 text-lg w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:placeholder-gray-400"
-            placeholder="Enter your username"
+            placeholder="Enter your email"
           />
         </div>
       </div>

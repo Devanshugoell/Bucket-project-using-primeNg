@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
 } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { UserService } from "../service/user.service";
 
 @Component({
   selector: "app-login",
@@ -18,17 +19,19 @@ import { CommonModule } from "@angular/common";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.loginForm = this.fb.group({
-      username: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
     });
   }
 
-  onSubmit(): void {
+  userLogin(): void {
     if (this.loginForm.valid) {
-      console.log("Login works!");
-      console.log(this.loginForm.value);
+      const formData = this.loginForm.value;
+      this.userService.login(formData);
+    } else {
+      alert("Either Email or password is incorrect");
     }
   }
 }

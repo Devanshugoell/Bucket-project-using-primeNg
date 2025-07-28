@@ -62,6 +62,12 @@ export class FooterComponent {
       vegetable: Math.floor(Math.random() * 20),
       drinks: Math.floor(Math.random() * 20),
     },
+    {
+      id: Math.floor(Math.random() * 1000),
+      fruits: Math.floor(Math.random() * 20),
+      vegetable: Math.floor(Math.random() * 20),
+      drinks: Math.floor(Math.random() * 20),
+    },
   ];
 
   ngOnInit() {

@@ -64,6 +64,16 @@
           Settings
         </p>
       </div>
+
+      <div class="iconContainer ml-4 cursor-pointer" (click)="onLogout()">
+        <i class="pi pi-sign-out"></i>
+        <p
+          class="icon-name"
+          [ngClass]="{ 'show-icon': sidebarVisiblewithName }"
+        >
+          logout
+        </p>
+      </div>
     </div>
 
     <!-- Toggle button -->
