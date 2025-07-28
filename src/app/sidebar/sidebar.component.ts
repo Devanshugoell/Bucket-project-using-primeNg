@@ -1,5 +1,5 @@
 import { NgClass } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { SidebarModule } from "primeng/sidebar";
 import { UserService } from "../service/user.service";
@@ -12,6 +12,7 @@ import { UserService } from "../service/user.service";
   styleUrl: "./sidebar.component.css",
 })
 export class SidebarComponent {
+  @Output() languageChanged = new EventEmitter<string>();
   sidebarVisiblewithName = false;
   sidebarVisible: boolean = true;
 
@@ -23,5 +24,9 @@ export class SidebarComponent {
 
   sidebarFunction() {
     this.sidebarVisiblewithName = !this.sidebarVisiblewithName;
+  }
+
+  emitLanguageChange(lang: string) {
+    this.languageChanged.emit(lang);
   }
 }

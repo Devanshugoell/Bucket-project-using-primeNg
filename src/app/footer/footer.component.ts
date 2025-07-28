@@ -7,6 +7,9 @@ import { NgIf } from "@angular/common";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
 import { AutoCompleteModule } from "primeng/autocomplete";
+import { TranslateModule } from "@ngx-translate/core";
+import { CommonModule } from "@angular/common";
+import { InputTextModule } from "primeng/inputtext";
 
 interface NewItem {
   id: number;
@@ -19,6 +22,9 @@ interface NewItem {
   selector: "app-footer",
   standalone: true,
   imports: [
+    CommonModule,
+    InputTextModule,
+    TranslateModule,
     AutoCompleteModule,
     ButtonModule,
     TableModule,

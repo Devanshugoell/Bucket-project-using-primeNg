@@ -6,13 +6,13 @@
         type="text"
         [(ngModel)]="searchTerm"
         (input)="handleInputChange($event)"
-        placeholder="Search ID, Fruits, Vegetable, Drinks..."
+        [placeholder]="'FOOTER.SEARCH_PLACEHOLDER' | translate"
         class="w-full h-14 leading-10 text-2xl pl-6"
       />
     </p-inputGroup>
 
     <p-button
-      label="Add"
+      [label]="'FOOTER.ADD_BUTTON' | translate"
       (click)="showInputGroup = true"
       styleClass="px-10 py-2
     font-mono text-2xl"
@@ -31,7 +31,7 @@
         <input
           pInputText
           [(ngModel)]="newItem.fruits"
-          placeholder="Enter Fruits"
+          [placeholder]="'FOOTER.ENTER_FRUITS' | translate"
           class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </p-inputGroup>
@@ -40,7 +40,7 @@
         <input
           pInputText
           [(ngModel)]="newItem.vegetable"
-          placeholder="Enter Vegetable"
+          [placeholder]="'FOOTER.ENTER_VEGETABLE' | translate"
           class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </p-inputGroup>
@@ -49,13 +49,17 @@
         <input
           pInputText
           [(ngModel)]="newItem.drinks"
-          placeholder="Enter Drinks"
+          [placeholder]="'FOOTER.ENTER_DRINKS' | translate"
           class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </p-inputGroup>
 
       <p-button
-        [label]="isEditing ? 'Update' : 'Add'"
+        [label]="
+          isEditing
+            ? ('FOOTER.UPDATE_BUTTON' | translate)
+            : ('FOOTER.ADD_BUTTON' | translate)
+        "
         (click)="AddItem()"
         styleClass="w-[80%]"
       />
@@ -65,12 +69,12 @@
   <p-table [value]="filteredProducts" styleClass="width: 100%" class="table">
     <ng-template pTemplate="header">
       <tr>
-        <th>Id</th>
-        <th>Fruits</th>
-        <th>Vegetable</th>
-        <th>Drinks</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>{{ "FOOTER.TABLE.ID" | translate }}</th>
+        <th>{{ "FOOTER.TABLE.FRUITS" | translate }}</th>
+        <th>{{ "FOOTER.TABLE.VEGETABLE" | translate }}</th>
+        <th>{{ "FOOTER.TABLE.DRINKS" | translate }}</th>
+        <th>{{ "FOOTER.TABLE.EDIT" | translate }}</th>
+        <th>{{ "FOOTER.TABLE.DELETE" | translate }}</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
