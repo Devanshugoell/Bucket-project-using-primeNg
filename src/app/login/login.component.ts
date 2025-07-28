@@ -8,6 +8,7 @@ import {
 } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { UserService } from "../service/user.service";
+import { NotificationService } from "../service/notification.service";
 
 @Component({
   selector: "app-login",
@@ -19,7 +20,11 @@ import { UserService } from "../service/user.service";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private notificationService: NotificationService
+  ) {
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
@@ -29,9 +34,18 @@ export class LoginComponent {
   userLogin(): void {
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
-      this.userService.login(formData);
+      this.userService.login(formData).subscribe({
+        next: () => {
+          this.notificationService.success("Login successful");
+        },
+        error: () => {
+          this.notificationService.warn(
+            "Either Email or password is incorrect"
+          );
+        },
+      });
     } else {
-      alert("Either Email or password is incorrect");
+      this.notificationService.warn("Please enter valid credentials");
     }
   }
 }
