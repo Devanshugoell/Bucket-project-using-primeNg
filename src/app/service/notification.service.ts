@@ -13,10 +13,6 @@ export class NotificationService {
     this.show("success", summary, detail);
   }
 
-  error(detail: string, summary: string = "Error") {
-    this.show("error", summary, detail);
-  }
-
   warn(detail: string, summary: string = "Warning") {
     this.show("warn", summary, detail);
   }
