@@ -12,13 +12,15 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 })
 export class RootComponent {
   constructor(private translate: TranslateService) {
+    const savedLang = localStorage.getItem("lang") || "en";
     translate.setDefaultLang("en");
-    translate.use("en");
+    translate.use(savedLang);
   }
 
   changeLanguage(lang: string) {
     if (lang === "en" || lang === "hi") {
       this.translate.use(lang);
+      localStorage.setItem("lang", lang);
     }
   }
 }
