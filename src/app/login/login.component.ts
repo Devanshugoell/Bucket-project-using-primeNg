@@ -9,6 +9,7 @@ import {
 import { CommonModule } from "@angular/common";
 import { UserService } from "../service/user.service";
 import { NotificationService } from "../service/notification.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -23,8 +24,13 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: Router
   ) {
+    if (localStorage.getItem("refresh_token")) {
+      this.router.navigate(["/main"]);
+    }
+
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
