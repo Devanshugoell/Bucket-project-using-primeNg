@@ -10,11 +10,12 @@ import {
   query,
   stagger,
 } from "@angular/animations";
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: "app-header",
   standalone: true,
-  imports: [NgFor, CardModule],
+  imports: [NgFor, CardModule, TranslateModule],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
   animations: [

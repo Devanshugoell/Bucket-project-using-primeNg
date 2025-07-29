@@ -23,5 +23,11 @@
     "MOBILE": "Mobile",
     "SETTINGS": "Settings",
     "LOGOUT": "Logout"
+  },
+  "HEADER": {
+    "TOTAL_BUCKETS": "Total Buckets",
+    "TOTAL_FRUITS": "Total Fruits",
+    "TOTAL_VEGETABLES": "Total Veggies",
+    "TOTAL_DRINKS": "Total Drinks"
   }
 }

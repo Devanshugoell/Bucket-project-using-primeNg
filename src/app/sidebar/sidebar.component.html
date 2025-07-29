@@ -25,8 +25,8 @@
         </p>
       </div>
 
-      <div class="iconContainer ml-4">
-        <i class="pi pi-language" (click)="emitLanguageChange('hi')"></i>
+      <div class="iconContainer ml-4" (click)="emitLanguageChange('hi')">
+        <i class="pi pi-language"></i>
         <p
           class="icon-name"
           [ngClass]="{ 'show-icon': sidebarVisiblewithName }"

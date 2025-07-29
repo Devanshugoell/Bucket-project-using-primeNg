@@ -23,5 +23,11 @@
     "MOBILE": "मोबाइल",
     "SETTINGS": "सेटिंग्स",
     "LOGOUT": "लॉगआउट"
+  },
+  "HEADER": {
+    "TOTAL_BUCKETS": "कुल बाल्टियाँ",
+    "TOTAL_FRUITS": "कुल फल",
+    "TOTAL_VEGETABLES": "कुल सब्ज़ियाँ",
+    "TOTAL_DRINKS": "कुल पेय"
   }
 }
