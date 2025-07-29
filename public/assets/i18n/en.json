@@ -14,5 +14,14 @@
       "EDIT": "Edit",
       "DELETE": "Delete"
     }
+  },
+  "SIDEBAR": {
+    "HOME": "Home",
+    "ENGLISH": "English",
+    "HINDI": "Hindi",
+    "BRIEFCASE": "Briefcase",
+    "MOBILE": "Mobile",
+    "SETTINGS": "Settings",
+    "LOGOUT": "Logout"
   }
 }

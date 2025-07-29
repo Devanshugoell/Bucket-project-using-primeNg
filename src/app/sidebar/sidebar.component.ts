@@ -3,11 +3,12 @@ import { Component, Output, EventEmitter } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { SidebarModule } from "primeng/sidebar";
 import { UserService } from "../service/user.service";
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: "app-sidebar",
   standalone: true,
-  imports: [ButtonModule, SidebarModule, NgClass],
+  imports: [ButtonModule, SidebarModule, NgClass, TranslateModule],
   templateUrl: "./sidebar.component.html",
   styleUrl: "./sidebar.component.css",
 })
