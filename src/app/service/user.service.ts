@@ -31,4 +31,13 @@ export class UserService {
         })
       );
   }
+
+  register(userData: any): Observable<any> {
+    const payload = {
+      ...userData,
+      avatar: "https://api.lorem.space/image/face?w=150&h=150",
+    };
+
+    return this.http.post("https://api.escuelajs.co/api/v1/users/", payload);
+  }
 }
