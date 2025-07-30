@@ -19,40 +19,56 @@
     />
   </div>
 
-  <div *ngIf="showInputGroup" class="input-overlay">
-    <div class="input-container min-h-96">
-      <i
-        class="pi pi-times"
-        style="font-size: 1.5rem"
+  <p-dialog
+    [header]="
+      isEditing
+        ? ('FOOTER.UPDATE_ITEM' | translate)
+        : ('FOOTER.ADD_ITEM' | translate)
+    "
+    [(visible)]="showInputGroup"
+    [modal]="true"
+    [style]="{ width: '30rem' }"
+    (onHide)="cancelEdit()"
+  >
+    <div class="flex items-center gap-4 mb-4">
+      <label class="font-semibold w-28">{{
+        "FOOTER.ENTER_FRUITS" | translate
+      }}</label>
+      <input
+        pInputText
+        [(ngModel)]="newItem.fruits"
+        class="flex-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div class="flex items-center gap-4 mb-4">
+      <label class="font-semibold w-28">{{
+        "FOOTER.ENTER_VEGETABLE" | translate
+      }}</label>
+      <input
+        pInputText
+        [(ngModel)]="newItem.vegetable"
+        class="flex-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div class="flex items-center gap-4 mb-6">
+      <label class="font-semibold w-28">{{
+        "FOOTER.ENTER_DRINKS" | translate
+      }}</label>
+      <input
+        pInputText
+        [(ngModel)]="newItem.drinks"
+        class="flex-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div class="flex justify-end gap-2">
+      <p-button
+        label="{{ 'FOOTER.CANCEL_BUTTON' | translate }}"
+        severity="secondary"
         (click)="cancelEdit()"
-      ></i>
-
-      <p-inputGroup>
-        <input
-          pInputText
-          [(ngModel)]="newItem.fruits"
-          [placeholder]="'FOOTER.ENTER_FRUITS' | translate"
-          class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </p-inputGroup>
-
-      <p-inputGroup>
-        <input
-          pInputText
-          [(ngModel)]="newItem.vegetable"
-          [placeholder]="'FOOTER.ENTER_VEGETABLE' | translate"
-          class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </p-inputGroup>
-
-      <p-inputGroup>
-        <input
-          pInputText
-          [(ngModel)]="newItem.drinks"
-          [placeholder]="'FOOTER.ENTER_DRINKS' | translate"
-          class="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </p-inputGroup>
+      ></p-button>
 
       <p-button
         [label]="
@@ -61,10 +77,10 @@
             : ('FOOTER.ADD_BUTTON' | translate)
         "
         (click)="AddItem()"
-        styleClass="w-full"
-      />
+      ></p-button>
     </div>
-  </div>
+  </p-dialog>
+
   <p-toast />
   <p-table [value]="filteredProducts" styleClass="width: 100%" class="table">
     <ng-template pTemplate="header">

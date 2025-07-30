@@ -3,13 +3,13 @@ import { ButtonModule } from "primeng/button";
 import { TableModule } from "primeng/table";
 import { InputGroupModule } from "primeng/inputgroup";
 import { FormsModule } from "@angular/forms";
-import { NgIf } from "@angular/common";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { TranslateModule } from "@ngx-translate/core";
 import { CommonModule } from "@angular/common";
 import { InputTextModule } from "primeng/inputtext";
+import { DialogModule } from "primeng/dialog";
 
 interface NewItem {
   id: number;
@@ -22,6 +22,7 @@ interface NewItem {
   selector: "app-footer",
   standalone: true,
   imports: [
+    DialogModule,
     CommonModule,
     InputTextModule,
     TranslateModule,
@@ -30,7 +31,6 @@ interface NewItem {
     TableModule,
     InputGroupModule,
     FormsModule,
-    NgIf,
     ToastModule,
   ],
   templateUrl: "./footer.component.html",
@@ -96,29 +96,42 @@ export class FooterComponent {
   }
 
   AddItem() {
-    this.isEditing = false;
     if (
       this.newItem.fruits == 0 ||
-      (this.newItem.fruits == null && this.newItem.drinks == 0) ||
-      (this.newItem.drinks == null && this.newItem.vegetable == 0) ||
-      this.newItem.vegetable == null
+      this.newItem.fruits == null ||
+      this.newItem.vegetable == 0 ||
+      this.newItem.vegetable == null ||
+      this.newItem.drinks == 0 ||
+      this.newItem.drinks == null
     ) {
       this.showToaster("warn", "WARN", "The value must be greater than 0");
       return;
+    }
+
+    if (this.isEditing) {
+      const index = this.products.findIndex(
+        (p: any) => p.id === this.newItem.id
+      );
+      if (index !== -1) {
+        this.products[index] = { ...this.newItem };
+      }
+      this.showToaster("success", "Updated", "Successfully Updated");
     } else {
       this.products.push({ ...this.newItem });
-      this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
       this.showToaster("success", "Success", "Successfully Added");
-      localStorage.setItem("products", JSON.stringify(this.products));
-
-      this.showInputGroup = false;
-      this.newItem = {
-        id: Math.floor(Math.random() * 1000),
-        fruits: null,
-        vegetable: null,
-        drinks: null,
-      };
     }
+
+    this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
+    localStorage.setItem("products", JSON.stringify(this.products));
+
+    this.showInputGroup = false;
+    this.isEditing = false;
+    this.newItem = {
+      id: Math.floor(Math.random() * 1000),
+      fruits: null,
+      vegetable: null,
+      drinks: null,
+    };
   }
 
   handleDelete(id: number, isEditing?: string): void {
@@ -133,7 +146,6 @@ export class FooterComponent {
 
   handleEdit(product: NewItem, id: number): void {
     this.backupEditedItem = { ...product };
-    this.handleDelete(id, "editing");
     this.showInputGroup = true;
     this.isEditing = true;
     this.newItem = {
@@ -183,12 +195,7 @@ export class FooterComponent {
   }
 
   cancelEdit(): void {
-    if (this.backupEditedItem) {
-      this.products.push(this.backupEditedItem);
-      localStorage.setItem("products", JSON.stringify(this.products));
-      this.filteredProducts = this.filterBySearchTerm(this.searchTerm);
-      this.backupEditedItem = null;
-    }
+    this.backupEditedItem = null;
 
     this.showInputGroup = false;
     this.isEditing = false;

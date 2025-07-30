@@ -6,6 +6,9 @@
     "ENTER_FRUITS": "Enter Fruits",
     "ENTER_VEGETABLE": "Enter Vegetable",
     "ENTER_DRINKS": "Enter Drinks",
+    "CANCEL_BUTTON": "Cancel",
+    "ADD_ITEM": "Add Item",
+    "UPDATE_ITEM": "Update Item",
     "TABLE": {
       "ID": "Id",
       "FRUITS": "Fruits",

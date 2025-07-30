@@ -36,12 +36,20 @@
       </div>
 
       <!-- Button -->
-      <button
+      @if(spinner){
+      <p-button
         type="submit"
-        class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 text-xl rounded-lg transition duration-200 font-bold border-none cursor-pointer"
-      >
-        Log in
-      </button>
+        styleClass="w-full mt-2 text-3xl "
+        disabled
+        icon="pi pi-spinner-dotted animate-spin"
+      ></p-button
+      >} @else {
+      <p-button
+        type="submit"
+        styleClass="w-full mt-2 text-xl"
+        label="Login"
+      ></p-button>
+      }
 
       <p class="float-end cursor-context-menu mt-7">
         Don't have an account?

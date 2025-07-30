@@ -6,6 +6,9 @@
     "ENTER_FRUITS": "फल दर्ज करें",
     "ENTER_VEGETABLE": "सब्जी दर्ज करें",
     "ENTER_DRINKS": "पेय दर्ज करें",
+    "CANCEL_BUTTON": "रद्द करें",
+    "ADD_ITEM": "मद जोड़ें",
+    "UPDATE_ITEM": "अद्यतन आइटम",
     "TABLE": {
       "ID": "आईडी",
       "FRUITS": "फल",

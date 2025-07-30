@@ -6,20 +6,23 @@ import {
   Validators,
   ReactiveFormsModule,
 } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgClass } from "@angular/common";
 import { UserService } from "../service/user.service";
 import { NotificationService } from "../service/notification.service";
 import { Router } from "@angular/router";
+import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+
+  imports: [CommonModule, ReactiveFormsModule, NgClass, ButtonModule],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  spinner = false;
 
   constructor(
     private fb: FormBuilder,
@@ -40,14 +43,19 @@ export class LoginComponent {
   userLogin(): void {
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
+      this.spinner = true;
+
       this.userService.login(formData).subscribe({
         next: () => {
           this.notificationService.success("Login successful");
+          this.spinner = false;
+          this.router.navigate(["/main"]);
         },
         error: () => {
           this.notificationService.warn(
             "Either Email or password is incorrect"
           );
+          this.spinner = false;
         },
       });
     } else {
